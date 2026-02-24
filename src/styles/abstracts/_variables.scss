@@ -24,11 +24,11 @@ $color-gray-light: #f5f5f5;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
-@mixin glass-card($opacity: 0.05, $blur: 15px) {
+@mixin glass-card($opacity: 0.05, $blur: 15px, $border-opacity: 0.1) {
   background: rgba(255, 255, 255, $opacity);
   backdrop-filter: blur($blur);
   -webkit-backdrop-filter: blur($blur);
-  border: 1px solid rgba(255, 255, 255, $border-opacity: 0.1);
+  border: 1px solid rgba(255, 255, 255, $border-opacity);
   box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   transition: all 0.3s ease;
