@@ -1,4 +1,16 @@
-import { Car, Scale, Cpu, Handshake, GraduationCap } from 'lucide-react';
+import { 
+  Car, 
+  Scale, 
+  Cpu, 
+  Handshake, 
+  GraduationCap, 
+  ClipboardCheck, 
+  ShieldAlert, 
+  Paintbrush, 
+  Settings, 
+  Scan, 
+  Gauge 
+} from 'lucide-react';
 
 export const siteContent = {
   metadata: {
@@ -45,6 +57,38 @@ export const siteContent = {
       { value: "100%", label: "Objetividad Técnica" },
     ],
   },
+  cases: [
+    {
+      title: "Condición General",
+      description: "Determinación de condición general y estado de conservación del vehículo.",
+      icon: ClipboardCheck,
+    },
+    {
+      title: "Daños vs Preexistencias",
+      description: "Verificación de daños por siniestro en contraste con daños preexistentes.",
+      icon: ShieldAlert,
+    },
+    {
+      title: "Calidad de Reparación",
+      description: "Análisis riguroso de la calidad de reparaciones en carrocería y pintura.",
+      icon: Paintbrush,
+    },
+    {
+      title: "Sistemas de Seguridad",
+      description: "Evaluación técnica de componentes de dirección, frenos y suspensión.",
+      icon: Settings,
+    },
+    {
+      title: "Diagnóstico Computarizado",
+      description: "Lectura y análisis profundo de códigos de diagnóstico electrónico.",
+      icon: Scan,
+    },
+    {
+      title: "Veracidad de Kilometraje",
+      description: "Valoración experta de inconsistencias en el recorrido del vehículo.",
+      icon: Gauge,
+    },
+  ],
   navigation: [
     { name: 'Inicio', href: '/#' },
     { name: 'Servicios', href: '/#servicios' },
