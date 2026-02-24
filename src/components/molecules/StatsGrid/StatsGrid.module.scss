@@ -1,0 +1,15 @@
+.stats_grid {
+  margin-top: 10rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
+
+  @include respond-to(sm) {
+    grid-template-columns: 1fr;
+    margin-top: 5rem;
+  }
+}

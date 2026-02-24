@@ -35,16 +35,31 @@
     margin-bottom: 0;
     flex-shrink: 0;
 
-    br {
-      @include respond-to(sm) {
-        display: none;
-      }
-    }
-    
     &_accent {
       color: transparent;
       -webkit-text-stroke: 1px $color-white;
       display: inline-block;
+    }
+
+    &_line {
+      display: block;
+      overflow: hidden;
+      line-height: 1.1;
+
+      @include respond-to(sm) {
+        display: inline;
+        overflow: visible;
+      }
+    }
+
+    &_word {
+      display: inline-block;
+      will-change: transform;
+      
+      @include respond-to(sm) {
+        // Disable transform animation on mobile if overflow hidden is disabled
+        // Or keep it but it won't have the masking effect
+      }
     }
   }
 

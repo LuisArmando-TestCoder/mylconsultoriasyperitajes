@@ -6,7 +6,6 @@ import Typography from '@/components/atoms/Typography/Typography';
 import Button from '@/components/atoms/Button/Button';
 import Hero3D from '../Hero3D/Hero3D';
 import ClientOnly from '@/components/atoms/ClientOnly';
-import { SplitText } from '@/components/atoms/SplitText/SplitText';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
@@ -16,10 +15,10 @@ export default function Hero() {
   useGSAP(() => {
     const tl = gsap.timeline();
     
-    tl.from("#hero-title", {
-      y: 100,
-      opacity: 0,
+    tl.from(`.${styles.hero__title_word}`, {
+      y: "110%",
       duration: 1.2,
+      stagger: 0.1,
       ease: "power4.out",
     })
     .from("#hero-description-wrapper", {
@@ -50,10 +49,15 @@ export default function Hero() {
             tag="h1"
             className={styles.hero__title}
           >
-            <SplitText id="hero-title-split-1">Claridad Técnica</SplitText>
-            <br />
+            <span className={styles.hero__title_line}>
+              <span className={styles.hero__title_word}>Claridad</span>{' '}
+              <span className={styles.hero__title_word}>Técnica</span>
+            </span>{' '}
             <span id="hero-title-accent" className={styles.hero__title_accent}>
-              <SplitText id="hero-title-split-2">Sector Automotriz</SplitText>
+              <span className={styles.hero__title_line}>
+                <span className={styles.hero__title_word}>Sector</span>{' '}
+                <span className={styles.hero__title_word}>Automotriz</span>
+              </span>
             </span>
           </Typography>
           

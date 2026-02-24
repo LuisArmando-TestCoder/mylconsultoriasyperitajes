@@ -1,42 +1,28 @@
-.infographics {
-  padding: 10rem 10vw;
-  display: flex;
-  flex-direction: column;
-  gap: 12rem;
-  max-width: 1400px;
-  margin: 0 auto;
+.info_block {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 8rem;
+  align-items: center;
 
-  @include respond-to(sm) {
-    padding: 5rem 5vw;
-    gap: 8rem;
+  @include respond-to(md) {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    text-align: center;
   }
 
-  &__item {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 8rem;
-    align-items: center;
-
-    @include respond-to(md) {
-      grid-template-columns: 1fr;
-      gap: 4rem;
-      text-align: center;
-    }
-
-    &--reverse {
-      grid-template-columns: 0.8fr 1.2fr;
-      
-      .infographics__content {
-        order: 2;
-        @include respond-to(md) {
-          order: 1;
-        }
-      }
-      .infographics__graphic {
+  &--reverse {
+    grid-template-columns: 0.8fr 1.2fr;
+    
+    .info_block__content {
+      order: 2;
+      @include respond-to(md) {
         order: 1;
-        @include respond-to(md) {
-          order: 2;
-        }
+      }
+    }
+    .info_block__graphic {
+      order: 1;
+      @include respond-to(md) {
+        order: 2;
       }
     }
   }
@@ -94,5 +80,4 @@
       height: 180px;
     }
   }
-
 }
