@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint", 
-    "push": "git add -A && git commit -m \"update\" && git push"
+    "push": "git add -A && git commit -m \"update\" && git push origin master"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
