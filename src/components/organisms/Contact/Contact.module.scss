@@ -1,0 +1,248 @@
+.contact {
+  padding: 10rem 10vw;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+
+  @include respond-to(sm) {
+    padding: 5rem 5vw;
+  }
+
+  &__container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem;
+    @include glass(0.02, 20px, 0.1);
+    border: 1px solid rgba($color-white, 0.05);
+    border-radius: 40px;
+    position: relative;
+    z-index: 1;
+
+    @include respond-to(sm) {
+      padding: 2.5rem 1.5rem;
+    }
+  }
+
+  &__header {
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+
+  &__title {
+    margin: 1.5rem 0;
+  }
+
+  &__description {
+    color: rgba($color-white, 0.6);
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  &__stepper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+    gap: 0;
+  }
+
+  &__step_indicator {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    max-width: 150px;
+
+    &:last-child {
+      flex: 0;
+      .contact__step_line {
+        display: none;
+      }
+    }
+
+    &.active {
+      .contact__step_number {
+        background-color: $color-accent;
+        color: $color-primary;
+        box-shadow: 0 0 20px rgba($color-accent, 0.4);
+        border-color: $color-accent;
+      }
+      .contact__step_line {
+        background: linear-gradient(90deg, $color-accent 0%, rgba($color-white, 0.1) 100%);
+      }
+    }
+  }
+
+  &__step_number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid rgba($color-white, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: rgba($color-white, 0.02);
+    flex-shrink: 0;
+  }
+
+  &__step_line {
+    height: 2px;
+    background-color: rgba($color-white, 0.1);
+    flex-grow: 1;
+    margin: 0 10px;
+    transition: all 0.4s ease;
+  }
+
+  &__form_wrapper {
+    min-height: 350px;
+  }
+
+  &__step {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .step_title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    
+    .icon {
+      color: $color-accent;
+    }
+  }
+
+  &__services_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+
+    @include respond-to(sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .service_button {
+    @include modern-button;
+    padding: 1.5rem;
+    background-color: rgba($color-white, 0.03);
+    border: 1px solid rgba($color-white, 0.05);
+    border-radius: 16px;
+    color: $color-white;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba($color-white, 0.08);
+      border-color: rgba($color-white, 0.2);
+    }
+
+    &.selected {
+      background-color: rgba($color-accent, 0.1);
+      border-color: $color-accent;
+      color: $color-accent;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 20px rgba($color-accent, 0.4);
+      
+      &::after {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba($color-white, 0.5);
+    margin-left: 0.5rem;
+  }
+
+  .input_wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .input_icon {
+      position: absolute;
+      left: 1.5rem;
+      color: rgba($color-white, 0.3);
+      pointer-events: none;
+      transition: color 0.3s ease;
+    }
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: 1.2rem 1.2rem 1.2rem 3.5rem;
+    background-color: rgba($color-white, 0.03);
+    border: 1px solid rgba($color-white, 0.05);
+    color: $color-white;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border-radius: 16px;
+
+    &::placeholder {
+      color: rgba($color-white, 0.2);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-accent;
+      background-color: rgba($color-white, 0.08);
+      box-shadow: 0 0 0 4px rgba($color-accent, 0.05);
+      
+      & + .input_icon {
+        color: $color-accent;
+      }
+    }
+  }
+
+  &__textarea {
+    padding: 1.5rem;
+    resize: none;
+  }
+
+  .step_actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    @include respond-to(sm) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  .back_button {
+    flex: 1;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .next_button,
+  .submit_button {
+    flex: 2;
+    justify-content: center;
+    gap: 0.5rem;
+
+    @include respond-to(sm) {
+      flex: 1;
+    }
+  }
+}

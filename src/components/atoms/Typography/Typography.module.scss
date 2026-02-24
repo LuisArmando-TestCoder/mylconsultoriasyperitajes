@@ -1,0 +1,46 @@
+.typography {
+  &--h1 {
+    font-size: clamp(2.5rem, 10vw, 6rem);
+    font-weight: 800;
+    line-height: 0.9;
+    text-transform: uppercase;
+    font-family: $font-display;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  &--h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    font-family: $font-display;
+    text-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  &--h3 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  &--body {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    font-weight: 400;
+    color: rgba($color-white, 0.8);
+  }
+
+  &--caption {
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  &--color-accent {
+    color: $color-accent;
+  }
+
+  &--color-primary {
+    color: $color-primary;
+  }
+}

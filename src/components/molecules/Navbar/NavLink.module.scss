@@ -1,0 +1,107 @@
+$ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+
+.navItem {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.navLink {
+  @include modern-button;
+  --btn-color: #{$color-accent};
+  --glow-color: rgba(63, 81, 181, 0.5); // Derived from #3f51b5
+  
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 1.5rem 0.6rem 0.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4rem;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.5s $ease-out-expo;
+  cursor: pointer;
+  overflow: visible;
+
+  .icon {
+    width: 2.2rem;
+    height: 2.2rem;
+    background: var(--btn-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 0 15px var(--glow-color);
+    position: relative;
+    z-index: 2;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: #fff;
+        border-radius: 50%;
+        transition: all 0.6s $ease-out-expo;
+    }
+  }
+
+  .text {
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s $ease-out-expo;
+  }
+
+  &.active,
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    padding-right: 1.2rem;
+
+    .icon {
+      transform: scale(1.1) translateX(3px);
+      background: #ffffff;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+      
+      &::after {
+        background: var(--btn-color);
+        transform: scale(1.2);
+      }
+    }
+
+    .text {
+        color: #fff;
+        transform: translateX(3px);
+    }
+  }
+
+  &.active {
+    &::after {
+        opacity: 1; // More pronounced glow for active state
+    }
+  }
+}
+
+// Mobile overrides to fit in the menu
+@include respond-to(sm) {
+    .navLink {
+        font-size: 1.5rem;
+        padding: 1rem 2rem 1rem 1rem;
+        gap: 1.5rem;
+        border-radius: 100px;
+
+        .icon {
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+    }
+}

@@ -1,0 +1,124 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 10vw;
+  overflow: hidden;
+
+  &__content {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-end;
+    gap: 4rem;
+    margin-bottom: 4rem;
+
+    @include respond-to(md) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    @include respond-to(sm) {
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__title {
+    margin-bottom: 0;
+    flex-shrink: 0;
+
+    br {
+      @include respond-to(sm) {
+        display: none;
+      }
+    }
+    
+    &_accent {
+      color: transparent;
+      -webkit-text-stroke: 1px $color-white;
+      display: inline-block;
+    }
+  }
+
+  &__description {
+    margin-bottom: 0;
+    max-width: 450px;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba($color-white, 0.7);
+    font-weight: 300;
+
+    &_wrapper {
+      position: relative;
+      padding-left: 2rem;
+      border-left: 1px solid rgba($color-white, 0.3);
+
+      @include respond-to(md) {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid rgba($color-white, 0.3);
+        padding-top: 2rem;
+      }
+
+      @include respond-to(sm) {
+        border-top: none;
+        padding-top: 0;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: -1px;
+        top: 0;
+        width: 1px;
+        height: 40px;
+        background: $color-accent;
+
+        @include respond-to(md) {
+          left: 0;
+          top: -1px;
+          width: 40px;
+          height: 1px;
+        }
+
+        @include respond-to(sm) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1.5rem;
+
+    @include respond-to(sm) {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+
+  @include respond-to(sm) {
+    padding: 0 5vw;
+    text-align: center;
+    justify-content: center;
+
+    &__header {
+      margin-bottom: 3rem;
+    }
+
+    &__actions {
+      align-items: center;
+    }
+  }
+}

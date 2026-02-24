@@ -1,0 +1,54 @@
+.service_card {
+  position: relative;
+  padding: 3rem;
+  @include glass-card(0.05, 15px);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: 400px;
+  justify-content: flex-end;
+
+  @include respond-to(sm) {
+    padding: 2rem;
+    min-height: 300px;
+  }
+
+  &:hover {
+    .service_card__icon_wrapper {
+      color: $color-accent;
+      transform: scale(1.1);
+    }
+  }
+
+  &__icon_wrapper {
+    transition: $transition-smooth;
+    color: rgba($color-white, 0.5);
+    position: absolute;
+    top: 3rem;
+  }
+
+  &__title {
+    margin-bottom: 0.5rem;
+  }
+
+  &__description {
+    font-size: 1rem;
+    color: rgba($color-white, 0.6);
+  }
+
+  &__index {
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    font-family: $font-display;
+    font-size: 3rem;
+    opacity: 0.1;
+    font-weight: 900;
+
+    @include respond-to(sm) {
+      top: 2rem;
+      right: 2rem;
+      font-size: 2rem;
+    }
+  }
+}
