@@ -162,6 +162,46 @@
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
+
+    &.error {
+      .contact__input,
+      .contact__textarea {
+        border-color: $color-error;
+        background-color: rgba($color-error, 0.05);
+        
+        &:focus {
+          box-shadow: 0 0 0 4px rgba($color-error, 0.1);
+        }
+      }
+      .label {
+        color: $color-error;
+      }
+      .input_icon {
+        color: $color-error;
+      }
+    }
+  }
+
+  .error_message {
+    font-size: 0.8rem;
+    color: $color-error;
+    margin-top: 0.2rem;
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .label {

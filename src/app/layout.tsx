@@ -6,6 +6,7 @@ import SmoothScroll from "@/components/atoms/SmoothScroll";
 import Navbar from "@/components/molecules/Navbar/Navbar";
 import Footer from "@/components/organisms/Footer/Footer";
 import { siteContent } from "@/lib/siteContent";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -78,6 +79,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <Toaster position="top-center" richColors />
         </SmoothScroll>
       </body>
     </html>
