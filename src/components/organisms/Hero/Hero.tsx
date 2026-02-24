@@ -70,10 +70,10 @@ export default function Hero() {
         </div>
 
         <div id="hero__actions" className={styles.hero__actions}>
-          <Button id="hero-cta-primary" variant="primary" href="/servicios">
+          <Button id="hero-cta-primary" variant="primary" href="/#servicios">
             Nuestros Servicios
           </Button>
-          <Button id="hero-cta-secondary" variant="outline" href="/contacto">
+          <Button id="hero-cta-secondary" variant="outline" href="/#contacto">
             Contacto
           </Button>
         </div>
