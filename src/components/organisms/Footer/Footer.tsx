@@ -51,8 +51,8 @@ export default function Footer() {
               Servicios profesionales de peritaje automotriz y consultoría técnica con alcance nacional en Costa Rica.
             </Typography>
             <div id="footer-socials" className={styles.footer__socials}>
-              <a href="#" aria-label="Facebook"><Facebook size={20} /></a>
-              <a href="#" aria-label="Instagram"><Instagram size={20} /></a>
+              <a href="#" aria-label="Facebook"><Facebook size={20} href={"https://www.facebook.com/MyLConsultoriayPeritaje"} /></a>
+              <a href="#" aria-label="Instagram"><Instagram size={20} href={"https://www.instagram.com/MyLConsultoriasyPeritajes/"} /></a>
             </div>
           </div>
 
