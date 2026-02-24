@@ -14,6 +14,40 @@
     z-index: 0;
   }
 
+  &__videoBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    opacity: 0.4; // Adjust opacity as needed
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(5, 5, 5, 0.7) 0%,
+      rgba(5, 5, 5, 0.4) 50%,
+      rgba(5, 5, 5, 0.7) 100%
+    );
+  }
+
   &__blob {
     position: absolute;
     width: 50vw;

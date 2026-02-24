@@ -2,6 +2,9 @@
   padding: 10rem 10vw;
   background-color: transparent;
   position: relative;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba($color-white, 0.05);
   overflow: hidden;
 
   @include respond-to(sm) {
