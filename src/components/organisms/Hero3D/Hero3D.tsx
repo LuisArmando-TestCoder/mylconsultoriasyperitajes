@@ -20,67 +20,6 @@ const COLORS = {
   glow: "#0066cc"
 };
 
-function VisualVehicle({ position, color, isHero }: any) {
-  const meshRef = useRef<THREE.Group>(null);
-
-  useFrame((state) => {
-    if (!meshRef.current) return;
-    const time = state.clock.elapsedTime;
-    
-    // Subtle driving vibration/bobbing
-    meshRef.current.position.y = position[1] + Math.sin(time * 15) * 0.02 + Math.sin(time * 3) * 0.05;
-    
-    // Slight drift sway
-    meshRef.current.rotation.z = Math.sin(time * 0.5) * 0.05;
-  });
-
-  return (
-    <group ref={meshRef} position={position}>
-      {/* Chassis */}
-      <mesh position={[0, 0.4, 0]}>
-        <boxGeometry args={[2, 0.6, 1]} />
-        <meshStandardMaterial 
-          color={color} 
-          wireframe 
-          transparent 
-          opacity={0.8} 
-          emissive={color}
-          emissiveIntensity={0.5}
-        />
-      </mesh>
-      {/* Cabin */}
-      <mesh position={[-0.2, 0.9, 0]}>
-        <boxGeometry args={[1, 0.5, 0.8]} />
-        <meshStandardMaterial 
-          color={color} 
-          wireframe 
-          transparent 
-          opacity={0.6} 
-          emissive={color}
-          emissiveIntensity={0.3}
-        />
-      </mesh>
-      {/* Wheels (Spinning visually) */}
-      {[[-0.6, 0.1, 0.4], [0.6, 0.1, 0.4], [-0.6, 0.1, -0.4], [0.6, 0.1, -0.4]].map((pos, i) => (
-        <Wheel key={i} position={pos} />
-      ))}
-    </group>
-  );
-}
-
-function Wheel({ position }: any) {
-  const ref = useRef<THREE.Mesh>(null);
-  useFrame((state, delta) => {
-    if (ref.current) ref.current.rotation.z -= delta * 10; // Spin wheels
-  });
-  return (
-    <mesh ref={ref} position={position as any}>
-      <cylinderGeometry args={[0.2, 0.2, 0.1, 8]} />
-      <meshStandardMaterial color={COLORS.secondary} wireframe />
-    </mesh>
-  );
-}
-
 function InfiniteGrid() {
   const gridRef = useRef<any>(null);
   
@@ -168,7 +107,7 @@ function Rig({ scrollY }: any) {
     targetPos.current.set(x, y, z);
     camera.position.lerp(targetPos.current, 0.05);
     
-    // Look ahead of the cars
+    // Look ahead
     lookAtTarget.set(5, 0, 0); 
     camera.lookAt(lookAtTarget);
   });
@@ -197,11 +136,6 @@ function Scene() {
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 15, 10]} intensity={2} color={COLORS.glow} />
       <pointLight position={[-10, 10, -10]} intensity={1} color={COLORS.accent} />
-      
-      <group>
-        <VisualVehicle position={[0, 0.5, 2]} color={COLORS.glow} />
-        <VisualVehicle position={[2, 0.5, -2]} color={COLORS.accent} />
-      </group>
       
       <InfiniteGrid />
       <FloatingParticles count={150} />
