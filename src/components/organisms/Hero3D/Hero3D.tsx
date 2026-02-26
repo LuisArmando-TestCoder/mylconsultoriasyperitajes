@@ -1,6 +1,7 @@
 "use client";
 
 import React, { Suspense, useRef, useMemo, useState, useEffect } from 'react';
+import { useTheme } from '@/context/ThemeContext';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { 
   PerspectiveCamera, 
@@ -15,7 +16,7 @@ const COLORS = {
   primary: "#002244",
   accent: "#ff0000",
   secondary: "#c0c0c0",
-  background: "#050505",
+  background: "#050505", // Still used for base, but we can override in Scene
   glow: "#0066cc"
 };
 
@@ -185,10 +186,13 @@ function Scene() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const { theme } = useTheme();
+  const themeBg = theme === 'dark' ? "#050505" : "#f9f9f9";
+
   return (
     <>
-      <color attach="background" args={[COLORS.background]} />
-      <fog attach="fog" args={[COLORS.background, 10, 50]} /> 
+      <color attach="background" args={[themeBg]} />
+      <fog attach="fog" args={[themeBg, 10, 50]} /> 
       
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 15, 10]} intensity={2} color={COLORS.glow} />

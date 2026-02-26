@@ -1,6 +1,7 @@
 .footer {
   padding: 8rem 10vw 4rem;
-  background-color: transparent;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   position: relative;
   z-index: 10;
   overflow: hidden;
@@ -16,7 +17,7 @@
     transform: translateX(-50%);
     font-size: 25vw;
     font-weight: 900;
-    color: rgba($color-white, 0.03);
+    color: rgba(var(--foreground-rgb), 0.03);
     pointer-events: none;
     line-height: 0.8;
     z-index: -1;
@@ -30,6 +31,8 @@
     margin: 0 auto;
     position: relative;
     @include glass(0.02, 12px, 0.08);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
     border-radius: 40px;
     padding: 5rem;
     display: flex;
@@ -54,7 +57,7 @@
       right: -10%;
       width: 400px;
       height: 400px;
-      background: radial-gradient(circle, rgba($color-accent, 0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(var(--accent-rgb), 0.1) 0%, transparent 70%);
       filter: blur(50px);
       z-index: -1;
       pointer-events: none;
@@ -87,9 +90,10 @@
     font-family: $font-display;
     letter-spacing: -1px;
     transition: all 0.3s ease;
+    color: var(--text-color);
     
     span {
-      color: $color-accent;
+      color: var(--accent);
     }
   }
 
@@ -101,13 +105,13 @@
     &:hover {
       .footer__logo {
         transform: scale(1.05);
-        color: $color-accent;
+        color: var(--accent);
       }
     }
   }
 
   &__description {
-    opacity: 0.7;
+    color: var(--text-muted);
     line-height: 1.6;
     max-width: 300px;
   }
@@ -125,14 +129,16 @@
       align-items: center;
       justify-content: center;
       @include glass(0.05, 5px, 0.1);
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
       transition: all 0.3s ease;
-      color: $color-white;
+      color: var(--text-color);
 
       &:hover {
-        background: rgba($color-white, 0.1);
+        background: rgba(var(--foreground-rgb), 0.1);
         transform: translateY(-5px);
-        color: $color-accent;
-        border-color: rgba($color-accent, 0.3);
+        color: var(--accent);
+        border-color: var(--accent);
       }
     }
   }
@@ -143,7 +149,7 @@
     letter-spacing: 2px;
     font-size: 1rem;
     margin-bottom: 1rem;
-    color: rgba($color-white, 0.9);
+    color: var(--text-color);
     position: relative;
     width: fit-content;
 
@@ -154,7 +160,7 @@
       left: 0;
       width: 30px;
       height: 2px;
-      background: $color-accent;
+      background: var(--accent);
     }
   }
 
@@ -171,8 +177,9 @@
       align-items: center;
       gap: 0.5rem;
       transition: all 0.3s ease;
-      opacity: 0.6;
+      color: var(--text-muted);
       font-size: 0.95rem;
+      text-decoration: none;
 
       svg {
         opacity: 0;
@@ -181,8 +188,7 @@
       }
 
       &:hover {
-        opacity: 1;
-        color: $color-accent;
+        color: var(--accent);
         padding-left: 5px;
 
         svg {
@@ -202,18 +208,18 @@
       display: flex;
       align-items: center;
       gap: 1rem;
-      opacity: 0.7;
+      color: var(--text-muted);
       font-size: 0.95rem;
       transition: all 0.3s ease;
+      text-decoration: none;
     }
 
     a:hover {
-      opacity: 1;
-      color: $color-accent;
+      color: var(--accent);
     }
 
     svg {
-      color: $color-accent;
+      color: var(--accent);
       flex-shrink: 0;
     }
   }
@@ -223,7 +229,7 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 4rem;
-    border-top: 1px solid rgba($color-white, 0.05);
+    border-top: 1px solid var(--border-color);
 
     @include respond-to(sm) {
       flex-direction: column-reverse;
@@ -234,7 +240,8 @@
   }
 
   &__legal {
-    opacity: 0.5;
+    color: var(--text-muted);
+    opacity: 0.7;
   }
 
   &__backToTop {
@@ -242,8 +249,8 @@
     height: 60px;
     border-radius: 20px;
     background: transparent;
-    border: 1px solid rgba($color-white, 0.1);
-    color: $color-white;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -256,7 +263,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: $color-accent;
+      background: var(--accent);
       transform: translateY(100%);
       transition: transform 0.4s ease;
       z-index: -1;
@@ -265,7 +272,8 @@
     &:hover {
       border-color: transparent;
       transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 20px var(--shadow-color);
+      color: var(--background);
 
       &::before {
         transform: translateY(0);

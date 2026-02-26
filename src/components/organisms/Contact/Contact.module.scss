@@ -1,10 +1,10 @@
 .contact {
   padding: 10rem 10vw;
-  background-color: transparent;
+  background-color: var(--bg-color);
   position: relative;
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba($color-white, 0.05);
+  border: 1px solid var(--border-color);
   overflow: hidden;
 
   @include respond-to(sm) {
@@ -16,7 +16,8 @@
     margin: 0 auto;
     padding: 4rem;
     @include glass(0.02, 20px, 0.1);
-    border: 1px solid rgba($color-white, 0.05);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
     border-radius: 40px;
     position: relative;
     z-index: 1;
@@ -33,10 +34,11 @@
 
   &__title {
     margin: 1.5rem 0;
+    color: var(--text-color);
   }
 
   &__description {
-    color: rgba($color-white, 0.6);
+    color: var(--text-muted);
     font-size: 1.1rem;
     max-width: 500px;
     margin: 0 auto;
@@ -65,13 +67,13 @@
 
     &.active {
       .contact__step_number {
-        background-color: $color-accent;
-        color: $color-primary;
-        box-shadow: 0 0 20px rgba($color-accent, 0.4);
-        border-color: $color-accent;
+        background-color: var(--accent);
+        color: var(--background);
+        box-shadow: 0 0 20px rgba(var(--foreground-rgb), 0.4);
+        border-color: var(--accent);
       }
       .contact__step_line {
-        background: linear-gradient(90deg, $color-accent 0%, rgba($color-white, 0.1) 100%);
+        background: linear-gradient(90deg, var(--accent) 0%, var(--border-color) 100%);
       }
     }
   }
@@ -80,20 +82,21 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    border: 2px solid rgba($color-white, 0.1);
+    border: 2px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
     font-size: 0.9rem;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    background-color: rgba($color-white, 0.02);
+    background-color: var(--card-bg);
+    color: var(--text-color);
     flex-shrink: 0;
   }
 
   &__step_line {
     height: 2px;
-    background-color: rgba($color-white, 0.1);
+    background-color: var(--border-color);
     flex-grow: 1;
     margin: 0 10px;
     transition: all 0.4s ease;
@@ -115,9 +118,10 @@
     gap: 1rem;
     margin-bottom: 1rem;
     font-size: 1.5rem;
+    color: var(--text-color);
     
     .icon {
-      color: $color-accent;
+      color: var(--accent);
     }
   }
 
@@ -134,25 +138,25 @@
   .service_button {
     @include modern-button;
     padding: 1.5rem;
-    background-color: rgba($color-white, 0.03);
-    border: 1px solid rgba($color-white, 0.05);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 16px;
-    color: $color-white;
+    color: var(--text-color);
     font-size: 1rem;
     font-weight: 500;
     text-align: left;
     cursor: pointer;
 
     &:hover {
-      background-color: rgba($color-white, 0.08);
-      border-color: rgba($color-white, 0.2);
+      background-color: rgba(var(--foreground-rgb), 0.08);
+      border-color: rgba(var(--foreground-rgb), 0.2);
     }
 
     &.selected {
-      background-color: rgba($color-accent, 0.1);
-      border-color: $color-accent;
-      color: $color-accent;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 20px rgba($color-accent, 0.4);
+      background-color: rgba(var(--accent-rgb), 0.1);
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 10px 20px var(--shadow-color), 0 0 20px rgba(var(--foreground-rgb), 0.4);
       
       &::after {
         opacity: 0.6;
@@ -210,7 +214,7 @@
   .label {
     font-size: 0.9rem;
     font-weight: 500;
-    color: rgba($color-white, 0.5);
+    color: var(--text-muted);
     margin-left: 0.5rem;
   }
 
@@ -222,7 +226,7 @@
     .input_icon {
       position: absolute;
       left: 1.5rem;
-      color: rgba($color-white, 0.3);
+      color: var(--text-muted);
       pointer-events: none;
       transition: color 0.3s ease;
     }
@@ -232,26 +236,27 @@
   &__textarea {
     width: 100%;
     padding: 1.2rem 1.2rem 1.2rem 3.5rem;
-    background-color: rgba($color-white, 0.03);
-    border: 1px solid rgba($color-white, 0.05);
-    color: $color-white;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
     font-family: inherit;
     font-size: 1rem;
     transition: all 0.3s ease;
     border-radius: 16px;
 
     &::placeholder {
-      color: rgba($color-white, 0.2);
+      color: var(--text-muted);
+      opacity: 0.5;
     }
 
     &:focus {
       outline: none;
-      border-color: $color-accent;
-      background-color: rgba($color-white, 0.08);
-      box-shadow: 0 0 0 4px rgba($color-accent, 0.05);
+      border-color: var(--accent);
+      background-color: rgba(var(--foreground-rgb), 0.08);
+      box-shadow: 0 0 0 4px rgba(var(--foreground-rgb), 0.05);
       
       & + .input_icon {
-        color: $color-accent;
+        color: var(--accent);
       }
     }
   }

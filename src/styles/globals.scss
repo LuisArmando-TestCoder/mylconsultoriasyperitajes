@@ -2,8 +2,29 @@
 @use 'base/reset';
 
 :root {
-  --primary-color: #{$color-primary};
-  --accent-color: #{$color-accent};
+  --primary-color: var(--primary);
+  --accent-color: var(--accent);
+  
+  // Custom properties that change with theme
+  --bg-color: var(--background);
+  --text-color: var(--foreground);
+  --text-muted: rgba(var(--foreground-rgb), 0.6);
+  --card-bg: rgba(var(--foreground-rgb), 0.05);
+  --border-color: rgba(var(--foreground-rgb), 0.1);
+  --glass-bg: rgba(var(--background-rgb), 0.7);
+  --glass-border: rgba(var(--foreground-rgb), 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: var(--font-body), sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-oswald), sans-serif;
 }
 
 html.lenis, html.lenis body {

@@ -7,6 +7,7 @@ import Navbar from "@/components/molecules/Navbar/Navbar";
 import Footer from "@/components/organisms/Footer/Footer";
 import { siteContent } from "@/lib/siteContent";
 import { Toaster } from "sonner";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -23,7 +24,7 @@ const montserrat = Montserrat({
   subsets: ["latin"],
 });
 
-const { metadata: siteMetadata, theme } = siteContent;
+const { metadata: siteMetadata } = siteContent;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.og.url),
@@ -64,23 +65,17 @@ export default function RootLayout({
       <body
         suppressHydrationWarning
         className={`${inter.variable} ${oswald.variable} ${montserrat.variable}`}
-        style={{
-          // @ts-ignore - Setting CSS variables from siteContent
-          "--background": theme.colors.background,
-          "--foreground": theme.colors.foreground,
-          "--primary": theme.colors.primary,
-          "--secondary": theme.colors.secondary,
-          "--accent": theme.colors.accent,
-        }}
       >
-        <SmoothScroll>
-          <Navbar />
-          <main id="main-content">
-            {children}
-          </main>
-          <Footer />
-          <Toaster position="top-center" richColors />
-        </SmoothScroll>
+        <ThemeProvider>
+          <SmoothScroll>
+            <Navbar />
+            <main id="main-content">
+              {children}
+            </main>
+            <Footer />
+            <Toaster position="top-center" richColors />
+          </SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );

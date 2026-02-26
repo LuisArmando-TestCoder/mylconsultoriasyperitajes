@@ -8,20 +8,20 @@ $ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 
 .navLink {
   @include modern-button;
-  --btn-color: #{$color-accent};
-  --glow-color: rgba(63, 81, 181, 0.5); // Derived from #3f51b5
+  --btn-color: var(--accent);
+  --glow-color: rgba(var(--foreground-rgb), 0.2);
   
   position: relative;
   display: flex;
   align-items: center;
   gap: 1rem;
   padding: 0.6rem 1.5rem 0.6rem 0.6rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--glass-border);
   border-radius: 4rem;
-  color: #ffffff;
+  color: var(--text-color);
   font-size: 0.9rem;
   font-weight: 700;
   text-decoration: none;
@@ -49,7 +49,7 @@ $ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
         position: absolute;
         width: 6px;
         height: 6px;
-        background: #fff;
+        background: var(--background);
         border-radius: 50%;
         transition: all 0.6s $ease-out-expo;
     }
@@ -63,14 +63,14 @@ $ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 
   &.active,
   &:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: var(--card-bg);
+    border-color: var(--border-color);
     padding-right: 1.2rem;
 
     .icon {
       transform: scale(1.1) translateX(3px);
-      background: #ffffff;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+      background: var(--text-color);
+      box-shadow: 0 0 30px var(--shadow-color);
       
       &::after {
         background: var(--btn-color);
@@ -79,14 +79,14 @@ $ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
     }
 
     .text {
-        color: #fff;
+        color: var(--text-color);
         transform: translateX(3px);
     }
   }
 
   &.active {
     &::after {
-        opacity: 1; // More pronounced glow for active state
+        opacity: 1;
     }
   }
 }

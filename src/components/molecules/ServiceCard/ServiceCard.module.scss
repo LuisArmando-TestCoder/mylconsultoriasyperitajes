@@ -2,6 +2,8 @@
   position: relative;
   padding: 3rem;
   @include glass-card(0.05, 15px);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -15,25 +17,27 @@
 
   &:hover {
     .service_card__icon_wrapper {
-      color: $color-accent;
+      color: var(--accent);
       transform: scale(1.1);
     }
+    background: var(--card-bg);
   }
 
   &__icon_wrapper {
     transition: $transition-smooth;
-    color: rgba($color-white, 0.5);
+    color: var(--text-muted);
     position: absolute;
     top: 3rem;
   }
 
   &__title {
     margin-bottom: 0.5rem;
+    color: var(--text-color);
   }
 
   &__description {
     font-size: 1rem;
-    color: rgba($color-white, 0.6);
+    color: var(--text-muted);
   }
 
   &__index {
@@ -44,6 +48,7 @@
     font-size: 3rem;
     opacity: 0.1;
     font-weight: 900;
+    color: var(--text-color);
 
     @include respond-to(sm) {
       top: 2rem;

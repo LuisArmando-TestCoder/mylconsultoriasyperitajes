@@ -95,12 +95,19 @@ export const siteContent = {
     { name: 'Contacto', href: '/#contacto' },
   ],
   theme: {
-    colors: {
+    dark: {
       background: "#000000",
       foreground: "#ffffff",
       primary: "#002244",
       secondary: "#c0c0c0",
-      accent: "#ff0000",
+      accent: "#3f51b5",
     },
+    light: {
+      background: "#ffffff",
+      foreground: "#1a1a1a",
+      primary: "#002244",
+      secondary: "#c0c0c0",
+      accent: "#3f51b5",
+    }
   },
 };

@@ -5,7 +5,7 @@
     line-height: 0.9;
     text-transform: uppercase;
     font-family: $font-display;
-    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 10px 30px var(--shadow-color);
   }
 
   &--h2 {
@@ -14,7 +14,7 @@
     line-height: 1.1;
     text-transform: uppercase;
     font-family: $font-display;
-    text-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 5px 20px var(--shadow-color);
   }
 
   &--h3 {
@@ -27,7 +27,7 @@
     font-size: 1.125rem;
     line-height: 1.6;
     font-weight: 400;
-    color: rgba($color-white, 0.8);
+    color: var(--text-muted);
   }
 
   &--caption {
@@ -37,10 +37,10 @@
   }
 
   &--color-accent {
-    color: $color-accent;
+    color: var(--accent);
   }
 
   &--color-primary {
-    color: $color-primary;
+    color: var(--primary);
   }
 }
