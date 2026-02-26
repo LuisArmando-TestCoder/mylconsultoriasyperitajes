@@ -71,7 +71,7 @@ function VisualVehicle({ position, color, isHero }: any) {
 function Wheel({ position }: any) {
   const ref = useRef<THREE.Mesh>(null);
   useFrame((state, delta) => {
-    if (ref.current) ref.current.rotation.x -= delta * 10; // Spin wheels
+    if (ref.current) ref.current.rotation.z -= delta * 10; // Spin wheels
   });
   return (
     <mesh ref={ref} position={position as any}>
